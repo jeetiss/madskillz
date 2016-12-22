@@ -10,13 +10,13 @@ body {
     /*font-family: 'Underdog', cursive;*/
 }
 
-.wrap {
+.ibNSdElBLa {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.container {
+._1h1fztc5lW {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,28 +25,28 @@ body {
     height: 100vh;
 }
 
-.row {
+._1ORTfOv9gX {
     display: flex;
 }
 
-.column {
+.fNZ1kMI-9n {
     display: flex;
     flex-direction: column;  
 }
 
-.aligncenter {
+._3o88G94gzi {
     align-items: center;
 }
 
-.width {
+._2PQ4YXqBuu {
     width: 40vmin;
 }
 
-.padding {
+._1EEzc52lZQ {
     padding: 5px;
 }
 
-.main {
+._2W1wrPw1ME {
     display: flex;
     justify-content: center;
     font-size: 15vmin;
@@ -54,12 +54,12 @@ body {
     margin-bottom: 50px;
 }
 
-.skill { 
+._25TIwIOn-s { 
     /*display: flex;
     justify-content: center;*/
 }
 
-.footer {
+._1fwnD348WP {
     display: flex;
     flex-direction: column;
     align-items: center;
