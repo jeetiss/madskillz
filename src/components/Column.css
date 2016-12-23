@@ -1,0 +1,12 @@
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.padding {
+	padding: 10px;
+}
+
+.valign_center {
+
+}
