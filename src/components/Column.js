@@ -1,10 +1,9 @@
 import React from 'react'
-import { column, padding as pd } from './Column.css'
+import { Fixed } from './Fixed'
+import styled from 'styled-components'
 
-export function Column ({ children, padding }) {
-	return (
-		<div className={`&{column} ${padding ? pd : ''}`}>
-			{children}
-		</div>
-	)
-}
+export const Column = styled(Fixed)`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`

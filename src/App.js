@@ -1,18 +1,17 @@
-import './App.css'
 import React from 'react'
 import { connect } from 'react-redux'
-import { Row, Column } from './components'
+import { Row, Column, Fixed } from './components'
 
 function Main ({ value, text }) {
     const keys = Object.keys(value);
     return (
-        <Row>
-            <Column padding>
+        <Row mheight='100vh'>
+            <Column mwidth='10vh'>
                 {keys.map((key) => (
                     <div key={key}> {value[key]} </div>
                 ))}
             </Column>
-            <Column padding>
+            <Column mwidth='22vh'>
                 {keys.map((key) => (
                     <div key={key}> {text[key]} </div>
                 ))}

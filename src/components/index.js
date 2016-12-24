@@ -1,2 +1,3 @@
-export * from './Row.js'
-export * from './Column.js'
+export * from './Row'
+export * from './Column'
+export * from './Fixed'

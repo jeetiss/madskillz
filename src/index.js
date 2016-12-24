@@ -1,5 +1,5 @@
-// import 'react-hot-loader/patch'
-// import { AppContainer } from 'react-hot-loader'
+import 'react-hot-loader/patch'
+import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
@@ -84,32 +84,30 @@ const store = createStore(
 
 const mountPoint = document.getElementById('root')
 
+if (process.env.NODE_ENV === 'development') {
+  const getApp = App => (
+    <AppContainer>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </AppContainer>
+  )
 
 
-// if (NODE_ENV === 'development') {
-//   const getApp = App => (
-//     <AppContainer>
-//       <Provider store={store}>
-//         <App />
-//       </Provider>
-//     </AppContainer>
-//   )
+  ReactDOM.render(getApp(App), mountPoint)
 
+  if (module.hot) {
+    module.hot.accept('./App', () => {
+      const NewApp = require('./App').default
 
-//   ReactDOM.render(getApp(App), mountPoint)
-
-//   if (module.hot) {
-//     module.hot.accept('./App', () => {
-//       const NewApp = require('./App').default
-
-//       ReactDOM.render(getApp(NewApp), mountPoint)
-//     })
-//   }
-// } else {
+      ReactDOM.render(getApp(NewApp), mountPoint)
+    })
+  }
+} else {
   ReactDOM.render(
     <Provider store={store}>
         <App />
     </Provider>,
     mountPoint
   )
-// }
+}

@@ -3,9 +3,7 @@ const {
 } = require('@webpack-blocks/webpack2')
 
 const babel = require('@webpack-blocks/babel6')
-const cssModules = require('@webpack-blocks/css-modules')
 const devServer = require('@webpack-blocks/dev-server2')
-const extractText = require('@webpack-blocks/extract-text2')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const basePlugins = [
@@ -32,7 +30,6 @@ module.exports = createConfig([
   entryPoint('./src/index.js'),
   setOutput('./build/bundle.js'),
   babel(),
-  cssModules(),
   addPlugins(basePlugins),
   env('development', [
     sourceMaps('eval'),
@@ -42,7 +39,6 @@ module.exports = createConfig([
     })
   ]),
   env('production', [
-    extractText(),
     addPlugins(productionPlugins)
   ])
 ])

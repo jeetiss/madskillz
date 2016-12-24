@@ -1,10 +1,9 @@
 import React from 'react'
-import { row } from './Row.css'
+import styled from 'styled-components';
+import { Fixed } from './Fixed'
 
-export function Row ({ children }) {
-	return (
-		<div className={row}>
-			{children}
-		</div>
-	)
-}
+export const Row = styled(Fixed)`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
