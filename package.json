@@ -13,6 +13,7 @@
     "@webpack-blocks/babel6": "^0.3.0",
     "@webpack-blocks/dev-server2": "^0.3.0",
     "@webpack-blocks/webpack2": "^0.3.0",
+    "babel-preset-env": "^1.1.4",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "html-webpack-plugin": "^2.24.1",
