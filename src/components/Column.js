@@ -3,7 +3,7 @@ import { Fixed } from './Fixed'
 import styled from 'styled-components'
 
 export const Column = styled(Fixed)`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

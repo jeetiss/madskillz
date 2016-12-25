@@ -6,10 +6,10 @@ import App from './App'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 
-const uniTime = (time) => Math.trunc(time / 1000);
-const nowTime = () => uniTime(Date.now());
+const uniTime = (time) => Math.trunc(time / 1000)
+const nowTime = () => uniTime(Date.now())
 
-const timeX = uniTime(new Date('2016-11-18T16:24:00')); // utc time
+const timeX = uniTime(new Date('2016-11-18T16:24:00')) // utc time
 // const timeX = uniTime(new Date('2016-12-21T21:09:00')); // utc time
 const val = ['days', 'hours', 'minutes', 'seconds']
 
@@ -22,7 +22,7 @@ const splitTime = time => {
     if (next !== 0 || index === arr.length - 1) {
       return Object.assign(store, {[val[index]]: next})
     }
-      return store
+    return store
   }, {})
 }
 
@@ -30,7 +30,7 @@ const arr = {
   days: ['дней', 'день', 'дня', 'дня', 'дня'],
   hours: ['часов', 'час', 'часа', 'часа', 'часа'],
   minutes: ['минут', 'минуту', 'минуты', 'минуты', 'минуты'],
-  seconds: ['секунд', 'секунду', 'секунды', 'секунды', 'секунды'],
+  seconds: ['секунд', 'секунду', 'секунды', 'секунды', 'секунды']
 }
 
 const exp = (splitTime) => Object.keys(arr).map(
@@ -42,32 +42,32 @@ const exp = (splitTime) => Object.keys(arr).map(
 ).reduce((store, next) => Object.assign(store, next), {})
 
 function reducer (state, { type, time }) {
-  if (type == 'timeUpdate') {
-    const value = splitTime(time);
-    const text = exp(value);
+  if (type === 'timeUpdate') {
+    const value = splitTime(time)
+    const text = exp(value)
     return { value, time, text }
-  } 
-  
+  }
+
   const dt = nowTime() - timeX
   const value = splitTime(dt)
-  const text = exp(value);
+  const text = exp(value)
   return { value, time: dt, text }
-} 
+}
 
 const timer = ({ getState, dispatch }) => {
   const step = () => {
-    const { time } = getState();
-    const now = nowTime() - timeX;
+    const { time } = getState()
+    const now = nowTime() - timeX
     if (now - time > 0) {
-      dispatch({ type: 'timeUpdate', time: now });
+      dispatch({ type: 'timeUpdate', time: now })
     }
 
-    requestAnimationFrame(step);  
+    window.requestAnimationFrame(step)
   }
 
-  requestAnimationFrame(step);
-  
-  return function (next) { 
+  window.requestAnimationFrame(step)
+
+  return function (next) {
     return function (action) {
       return next(action)
     }
@@ -93,7 +93,6 @@ if (process.env.NODE_ENV === 'development') {
     </AppContainer>
   )
 
-
   ReactDOM.render(getApp(App), mountPoint)
 
   if (module.hot) {
@@ -106,7 +105,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   ReactDOM.render(
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>,
     mountPoint
   )
