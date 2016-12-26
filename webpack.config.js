@@ -5,6 +5,7 @@ const {
 const babel = require('@webpack-blocks/babel6')
 const devServer = require('@webpack-blocks/dev-server2')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CompressionPlugin = require("compression-webpack-plugin")
 
 const basePlugins = [
   new HtmlWebpackPlugin({
@@ -32,14 +33,24 @@ const productionPlugins = [
 ]
 
 module.exports = createConfig([
-  entryPoint('./src/index.js'),
-  setOutput('./build/bundle.js'),
-  babel(),
+  setOutput('./build/bundle.js'), 
   defineConstants({
     'process.env.NODE_ENV': process.env.NODE_ENV || 'development'
   }),
   addPlugins(basePlugins),
   env('development', [
+    babel({
+      plugins: [ "react-hot-loader/babel" ],
+      presets: [
+        ["env", {
+          "targets": {
+            "chrome": 52
+          },
+          "modules": false
+        }],
+        "react"
+      ],
+    }),
     entryPoint('./src/index.dev.js'),
     sourceMaps('eval'),
     devServer(),
@@ -52,6 +63,16 @@ module.exports = createConfig([
     })
   ]),
   env('production', [
+    babel({
+      plugins: [],
+      presets: [
+        ["env", {
+          "browsers": ["last 2 versions, not ie > 9, not ie_mob > 9"],
+          "modules": false
+        }],
+        "react"
+      ],
+    }),
     entryPoint('./src/index.js'),
     addPlugins(productionPlugins)
   ])

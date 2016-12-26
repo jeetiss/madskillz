@@ -9,12 +9,12 @@ function Main ({ value, text }) {
       <Column mwidth='10vh'>
         {keys.map((key) => (
           <div key={key}> {value[key]} </div>
-                ))}
+        ))}
       </Column>
       <Column mwidth='22vh'>
         {keys.map((key) => (
           <div key={key}> {text[key]} </div>
-                ))}
+        ))}
       </Column>
     </Row>
   )
