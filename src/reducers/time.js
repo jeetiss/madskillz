@@ -1,14 +1,7 @@
-import { splitTime, exp, nowTime } from '../utils/time'
-
-export const timeReducer = timeFrom => (state, { type, time }) => {
+export const timeReducer = (state, { type, time }) => {
   if (type === 'timeUpdate') {
-    const value = splitTime(time)
-    const text = exp(value)
-    return { value, time, text }
+    return Object.assign({}, state, { time })
   }
 
-  const dt = nowTime() - timeFrom
-  const value = splitTime(dt)
-  const text = exp(value)
-  return { value, time: dt, text }
+  return state
 }
