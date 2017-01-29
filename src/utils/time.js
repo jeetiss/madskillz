@@ -8,12 +8,10 @@ export const splitTime = time => {
     function ([mod, gap]) {
       return Math.trunc(time / gap) % mod
     }
-  ).reduce((store, next, index, arr) => {
-    if (next !== 0 || index === arr.length - 1) {
-      return Object.assign(store, {[val[index]]: next})
-    }
-    return store
-  }, {})
+  ).reduce(
+    (store, next, index, arr) => Object.assign(store, {[val[index]]: next}),
+    {}
+  )
 }
 
 const arr = {
