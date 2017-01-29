@@ -5,7 +5,6 @@ const {
 const babel = require('@webpack-blocks/babel6')
 const devServer = require('@webpack-blocks/dev-server2')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CompressionPlugin = require("compression-webpack-plugin")
 
 const basePlugins = [
   new HtmlWebpackPlugin({
