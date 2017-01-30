@@ -8,7 +8,7 @@ const timeX = uniTime(new Date('2016-11-18T16:24:00'))
 
 const reducer = combineReducers({
   time: timeReducer,
-  modal: modalReducer,
+  modal: modalReducer
 })
 
 function createStore () {

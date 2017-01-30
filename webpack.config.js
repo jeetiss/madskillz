@@ -32,23 +32,23 @@ const productionPlugins = [
 ]
 
 module.exports = createConfig([
-  setOutput('./build/bundle.js'), 
+  setOutput('./build/bundle.js'),
   defineConstants({
     'process.env.NODE_ENV': process.env.NODE_ENV || 'development'
   }),
   addPlugins(basePlugins),
   env('development', [
     babel({
-      plugins: [ "react-hot-loader/babel" ],
+      plugins: [ 'react-hot-loader/babel' ],
       presets: [
-        ["env", {
-          "targets": {
-            "chrome": 52
+        ['env', {
+          'targets': {
+            'chrome': 52
           },
-          "modules": false
+          'modules': false
         }],
-        "react"
-      ],
+        'react'
+      ]
     }),
     entryPoint('./src/index.dev.js'),
     sourceMaps('eval'),
@@ -65,12 +65,12 @@ module.exports = createConfig([
     babel({
       plugins: [],
       presets: [
-        ["env", {
-          "browsers": ["last 2 versions, not ie > 9, not ie_mob > 9"],
-          "modules": false
+        ['env', {
+          'browsers': ['last 2 versions, not ie > 9, not ie_mob > 9'],
+          'modules': false
         }],
-        "react"
-      ],
+        'react'
+      ]
     }),
     entryPoint('./src/index.js'),
     addPlugins(productionPlugins)
