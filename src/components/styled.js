@@ -19,4 +19,7 @@ export const Cont = styled.div`
     display:flex;
     align-items: center;
     height: 100vh;
+    ${media.tablet`
+        height: initial;
+    `}
 `
