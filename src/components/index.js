@@ -5,4 +5,4 @@ export * from './styled'
 export * from './Digit'
 export * from './Ratioblock'
 export * from './Blat'
-
+export * from './Label'

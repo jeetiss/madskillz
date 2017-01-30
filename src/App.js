@@ -1,10 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { splitTime } from './utils/time'
+import { splitTime, exp } from './utils/time'
 import { injectGlobal } from 'styled-components'
 import {
-  // Row,
-  // Column,
   Cifer,
   Blat,
   Cont
@@ -20,11 +18,16 @@ injectGlobal`
 
 function Main ({ time }) {
   const vals = splitTime(time.now - time.from)
+  const labels = exp(vals)
 
   return (
     <Cont>
       <Cifer>
-        { Object.keys(vals).map(key => <Blat key={key} value={vals[key]} />)}
+        { Object.keys(vals).map(key => <Blat
+          key={key}
+          value={vals[key]}
+          label={labels[key]} />
+        )}
       </Cifer>
     </Cont>
 
